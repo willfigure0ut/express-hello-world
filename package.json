@@ -1,27 +1,13 @@
 {
-  "name": "express-hello-world",
-  "version": "1.0.0",
-  "description": "Expressjs Hello World example to provide faster start deploying on Cyclic platform",
-  "main": "server.js",
-  "scripts": {
-    "serve": "nodemon --watch . server.js",
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cyclic-software/express-hello-world.git"
-  },
-  "author": "Cyclic Software",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cyclic-software/express-hello-world/issues"
-  },
-  "homepage": "https://github.com/cyclic-software/express-hello-world#readme",
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@google/generative-ai": "^0.1.2",
+    "api": "^6.1.1",
+    "axios": "^1.6.2",
+    "cohere": "^1.1.1",
+    "cohere-ai": "^7.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "google-images": "^2.1.0"
+    
   }
 }

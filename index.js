@@ -36,7 +36,7 @@ async function getResponse(prompt) {
 
 
 
-app.get('/search', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     
     const options = {

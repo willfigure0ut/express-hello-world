@@ -90,7 +90,7 @@
 
         async function handler() {
             const input = document.getElementById('input');
-            const response = await fetch(`http://localhost:3000/?search=${input.value}`);
+            const response = await fetch(`https://shy-jade-slug-hem.cyclic.app/search?search=${input.value}`);
             
             if (response.ok) {
                 const data = await response.json();

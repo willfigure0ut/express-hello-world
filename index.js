@@ -61,7 +61,7 @@ app.get('/search', async (req, res) => {
     const promptRequest = axios.request(options)
       .then(response => response.data.generations[0].text);
   
-    const searchTermRequest = getResponse(`can you give me only the image prompt related to question for searching on google images neither any link of the image nor anything in the response other than the prompt itself for the question ${req.query.search}`);
+    const searchTermRequest = getResponse(`Provide image prompts related to the query "${req.query.search}" for a Google Images search. Exclude any image links or other information in the response, only include the prompt itself.`);
   
     const [answer, searchTerm] = await Promise.all([promptRequest, searchTermRequest]);
   

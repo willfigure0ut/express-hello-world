@@ -143,12 +143,14 @@
 
             
             const textDiv = document.createElement('div');
+            textDiv.id = 'answer'
             textDiv.textContent = answerText;
             answerDiv.appendChild(textDiv);
 
             images.forEach(image => {
                 const imgContainer = document.createElement('div');
                 imgContainer.className = 'image-container';
+                imgContainer.id = 'image-container';
 
                 const img = document.createElement('img');
                 img.src = image.url;

@@ -12,6 +12,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
+            padding-bottom: 60px;
             align-items: center;
             background-image: url('/logo1.png'); 
             background-repeat: no-repeat;
@@ -77,22 +78,27 @@
         .main-content {
             overflow-y: auto;
             padding: 20px;
-            height: calc(100vh - 65px); 
-            margin-bottom: 65px; 
+            width: 100%; /* Take up full width */
+            flex-grow: 1;
+            
+        }
+        #body {
+            padding-bottom: 150px;
         }
 
         .image-container img {
-        width: 100%;
-        height: 100%;
-        max-width: 600px;  
-        max-height: 600px; 
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
 
-        .image-container:hover img {
-            transform: scale(1.05);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            text-align: center;
+            max-width: 600px;  
+            max-height: 600px; 
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
+
+        
 
         @media screen and (max-width: 600px) {
             
@@ -102,20 +108,24 @@
             }
 
             .main-content {
-                padding: 10px; /* Reduce padding */
-                height: calc(100vh - 120px); /* Adjust height */
-                margin-bottom: 120px; /* Adjust bottom margin */
+                overflow-y: auto;
+                padding: 20px;
+                width: 100%; /* Take up full width */
+                max-height: calc(100vh - 65px); /* Adjust height */
+                margin-bottom: 65px; /* Adjust bottom margin */
+                padding-bottom: 70px; /* Add this line */
             }
 
         }
     </style>
 </head>
-<body id="body">
+<body id="main">
     
-    <div class="main-content">
-        <div id="answer"></div>
-        <div id="imageContainer" class="image-container"></div>
+    
+    <div id="body">
+        
     </div>
+
     <div class="input-container">
         <input type="text" id="input" aria-label="input">
         <button id="btn">⬆️</button>
@@ -135,33 +145,45 @@
             const data = await response.json();
             const images = data.image;
             const answerText = data.answer;
+            const mainBody = document.getElementById('body')
+            
             const answerContainer = document.getElementById('answer');
-            document.getElementById('body').style.backgroundImage = 'none';
-
+            const imageContainer = document.getElementById('imageContainer'); 
+            document.getElementById('main').style.backgroundImage = 'none';
+            
+            const mainContent = document.createElement('div')
+            mainContent.id = 'main-content'
+            
             
             const answerDiv = document.createElement('div');
+            answerDiv.id = 'answer'
 
             
-            const textDiv = document.createElement('div');
-            textDiv.id = 'answer'
-            textDiv.textContent = answerText;
-            answerDiv.appendChild(textDiv);
+           
+            
+            
+            
+            answerDiv.textContent = answerText;
+            mainContent.appendChild(answerDiv);
+            
 
             images.forEach(image => {
                 const imgContainer = document.createElement('div');
                 imgContainer.className = 'image-container';
-                imgContainer.id = 'image-container';
+                imgContainer.id = 'imageContainer';
+                
 
                 const img = document.createElement('img');
                 img.src = image.url;
                 img.alt = image.description;
 
                 imgContainer.appendChild(img);
-                answerDiv.appendChild(imgContainer); 
+                mainContent.appendChild(imgContainer); 
+                
             });
 
             
-            answerContainer.appendChild(answerDiv);
+            mainBody.appendChild(mainContent)
         }
     }
     </script>

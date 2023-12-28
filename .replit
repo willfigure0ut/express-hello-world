@@ -181,5 +181,6 @@ pattern = "**/{*.less,*.scss,*.css}"
 requiredFiles = [".replit", "replit.nix", ".config"]
 
 [deployment]
-publicDir = "/"
-deploymentTarget = "static"
+deploymentTarget = "gce"
+build = ["sh", "-c", "npm i"]
+run = ["sh", "-c", "node index.js"]

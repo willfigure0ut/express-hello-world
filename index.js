@@ -8,8 +8,9 @@ const GoogleImages = require("google-images");
 const cors = require("cors");
 const app = express();
 app.use(cors());
+app.use(express.static('public'))
 app.use(express.static("/index.html"));
-app.use(express.static(path.join(__dirname, "/logo11.png")));
+app.use(express.static(__dirname));
 
 const client = new GoogleImages(
   "52673c0f180864dd5",

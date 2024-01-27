@@ -147,9 +147,9 @@
 
       async function handler() {
         const input = document.getElementById("input");
-        const response = await fetch(
-          `https://shy-jade-slug-hem.cyclic.app/search?search=${input.value}`,
-        );
+        const response = await fetch(`https://shy-jade-slug-hem.cyclic.app/search?search=${input.value}`,
+            { mode: 'no-cors' }
+          );
 
         if (response.ok) {
           const data = await response.json();

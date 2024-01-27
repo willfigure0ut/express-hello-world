@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
-// const OpenAI = require('openai');
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-let API_KEY = "AIzaSyAA-s8lSiHZ42f7QvqEJr7ixkE9RjIs0NE";
+let API_KEY = "AIzaSyBRXLaHLPPJI0j9Pv4lKzjauM19RCDT40Q";
 const axios = require("axios");
 const GoogleImages = require("google-images");
 const cors = require("cors");
@@ -13,19 +13,10 @@ app.use(express.static("/index.html"));
 app.use(express.static(__dirname));
 
 const client = new GoogleImages(
-  "52673c0f180864dd5",
-  "AIzaSyD5_JRWvxUmJI89aifEgJXHXIt_uaB2yHw",
+  "5654fdf28216e48a5",
+  "AIzaSyBOvYyJUmDcm3ffeH4JpgjEEfQzLM8wKS8",
 );
-// const openai = new OpenAI({ apiKey: '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' });
-// async function getResponse(prompt) {
-//   const response = await openai.completions.create({
-//     model: 'text-davinci-003',
-//     prompt: prompt,
-//     max_tokens: 60
-//   });
 
-//   return response.choices[0].text;
-// }
 const genAI = new GoogleGenerativeAI(API_KEY);
 async function getResponse(prompt) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });

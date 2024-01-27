@@ -2,7 +2,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.1.2",
     "api": "^6.1.1",
-    "axios": "^1.6.2",
+    "axios": "^1.6.7",
     "cohere": "^1.1.1",
     "cohere-ai": "^7.4.3",
     "cors": "^2.8.5",
